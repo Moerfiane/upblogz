@@ -17,7 +17,7 @@ public class UserController {
     public String index(Model model) {
 
         model.addAttribute("title", "signup");
-        return "signup";
+        return "signup/index";
 
     }
 
