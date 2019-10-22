@@ -10,15 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("signup")
 public class UserController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
 
         model.addAttribute("title", "signup");
-
-        return "signup/index";
+        return "signup";
 
     }
 
