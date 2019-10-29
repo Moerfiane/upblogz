@@ -8,14 +8,21 @@
 <h1 th:text="${title}"></h1>
 <hr>
 
-<label for = "user"><b>Username</b></label>
-<input type="text" placeholder="Enter Username" name="username" required>
+<div class="container">
+    <form method="POST" modelAttribute="userForm" class="form-signin">
+        <h2 class="form-signin-heading">Create your account</h2>
+        <spring bind path="username">
+            <div class="form-group ${status.error ? 'has-error' : ''"}>
+                <form input type="password" path="passwordConfirm" class="form-control"
+                      placeholder="Confirm your password"></form>
+                <form errors path="passwordConfirm"></form>
+            </div>
+        </spring>
 
-//label for password
-<input type="password" placeholder="Enter Password" name="psw" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+</div>
 
-//label for psw-repeat
-<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
 
 
