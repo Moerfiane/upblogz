@@ -1,4 +1,4 @@
-package org.launchcode.upblogz;
+package org.launchcode.upblogz.Controllers;
 
 
 import org.apache.catalina.User;
@@ -24,10 +24,10 @@ public class WelcomeController {
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     public String signupForm(Model model) {
         model.addAttribute("title", "Sign Up");
-
-
         return "welcome/signup";
     }
+
+
 
 
 
