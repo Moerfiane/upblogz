@@ -12,7 +12,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("welcome")
-public class WelcomeController {
+public class Welcome {
 
     @RequestMapping(value = "")
     public String index(Model model) {
