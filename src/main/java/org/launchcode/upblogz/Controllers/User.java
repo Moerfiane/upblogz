@@ -1,39 +1,41 @@
 package org.launchcode.upblogz.Controllers;
 
 
-import org.launchcode.upblogz.Models.SecurityService;
+import org.launchcode.upblogz.Models.Forms.SignupForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 @Controller
 public class User {
 
-    @Autowired
-    private SecurityService securityService;
+
+
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signup(Model model) {
-        model.addAttribute("userForm", new User());
+        model.addAttribute("SignupForm", new User());
 
         return "signup";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signup(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+    public String signup(@ModelAttribute @Valid SignupForm signupForm, Errors errors, Model model) {
 
-        if (bindingResult.hasErrors()) {
+
+        if (errors.hasErrors()) {
             return "signup";
         }
 
-        userService.save(userForm);
-
-        securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
+        String username = signupForm.getUsername();
+        String password = signupForm.getPassword();
 
         return "redirect:/welcome";
 
