@@ -37,7 +37,7 @@ public class User {
         String username = signupForm.getUsername();
         String password = signupForm.getPassword();
 
-        return "redirect:/welcome";
+        return "welcome";
 
     }
 
@@ -52,10 +52,7 @@ public class User {
         return "login";
     }
 
-    @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
-    public String welcome(Model model) {
 
-        return "welcome";
-    }
+
 
 }

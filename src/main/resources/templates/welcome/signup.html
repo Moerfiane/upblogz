@@ -9,15 +9,18 @@
 <hr>
 
 <div class="container">
-    <form method="POST" modelAttribute="userForm" class="form-signin">
+    <form method="post" th:object="${signupForm}">
         <h2 class="form-signin-heading">Create your account</h2>
-        <spring bind path="username">
-            <div class="form-group ${status.error ? 'has-error' : ''"}>
-                <form input type="password" path="passwordConfirm" class="form-control"
-                      placeholder="Confirm your password"></form>
-                <form errors path="passwordConfirm"></form>
-            </div>
-        </spring>
+        <label>
+            Username<span class="req"></span>
+        </label>
+        <input type="text" name="username"><br>
+
+          <!--  \\\<div class="form-group ${status.error ? 'has-error' : ''"}>-->
+        <label>
+            Password<span class="req"></span>
+        </label>
+        <input type="password" name="psw">
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form>
