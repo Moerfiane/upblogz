@@ -1,11 +1,11 @@
 package org.launchcode.upblogz.Controllers;
 
 
+import org.launchcode.upblogz.Models.Data.UserDAO;
 import org.launchcode.upblogz.Models.Forms.SignupForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,14 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-public class User {
+@RequestMapping("signup")
+public class UserController {
 
-
-
+    @Autowired
+    private UserDAO userDAO;
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signup(Model model) {
-        model.addAttribute("SignupForm", new User());
+        model.addAttribute("SignupForm", userDAO.findAll());
 
         return "signup";
     }
@@ -33,6 +34,7 @@ public class User {
         if (errors.hasErrors()) {
             return "signup";
         }
+
 
         String username = signupForm.getUsername();
         String password = signupForm.getPassword();

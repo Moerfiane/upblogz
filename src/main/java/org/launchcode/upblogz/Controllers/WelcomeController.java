@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("welcome")
-public class Welcome {
+public class WelcomeController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
