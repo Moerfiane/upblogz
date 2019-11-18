@@ -1,4 +1,4 @@
-package org.launchcode.upblogz;
+package org.upblogz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,8 +1,9 @@
-package org.launchcode.upblogz.Controllers;
+package org.upblogz.Controllers;
 
 
-import org.launchcode.upblogz.Models.Data.UserDAO;
-import org.launchcode.upblogz.Models.Forms.SignupForm;
+
+import org.upblogz.Models.Data.UserDao;
+import org.upblogz.Models.Forms.SignupForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    private UserDAO userDAO;
+    private UserDao userDAO;
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signup(Model model) {

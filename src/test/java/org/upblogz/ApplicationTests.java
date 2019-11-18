@@ -1,4 +1,4 @@
-package org.launchcode.upblogz;
+package org.upblogz;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

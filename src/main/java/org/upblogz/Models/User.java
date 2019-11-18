@@ -1,9 +1,5 @@
-package org.launchcode.upblogz.Models;
+package org.upblogz.Models;
 
-
-import com.sun.org.apache.bcel.internal.generic.ARETURN;
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,9 +9,12 @@ import javax.validation.constraints.Size;
 @Entity
 public class User {
 
+
+
     @Id
     @GeneratedValue
     private int id;
+
 
     @NotNull
     @Size(min=3, max=15)
@@ -32,9 +31,14 @@ public class User {
 
     }
 
+    public int getId() {
+        return id;
+    }
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        this.id = getId();
     }
 
     public String getUsername() {

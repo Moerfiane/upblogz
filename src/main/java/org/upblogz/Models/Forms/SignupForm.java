@@ -1,19 +1,17 @@
-package org.launchcode.upblogz.Models.Forms;
-
-import com.sun.javafx.beans.IDProperty;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import sun.rmi.runtime.Log;
-
-import java.beans.Transient;
+package org.upblogz.Models.Forms;
 
 
-public class SignupForm {
+public class SignupForm extends LoginForm {
 
 
     private String username;
     private String password;
 
 
+
+    public SignupForm() {
+
+    }
 
 
 
